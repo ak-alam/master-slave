@@ -36,7 +36,15 @@ Resources:
       Tags: 
         - Key: Name
           Value: "python-server"
-      # UserData: 
-      #     Fn::Base64: |
-      #       #!/bin/bash
-      #       yum update -y
+      UserData: 
+          Fn::Base64: |
+            #!/bin/bash
+            yum update -y 
+            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgWaa0MY86tlPRM9qs9XoO3g8SBzyCU4JJaeCASKMgNU8X6V/LcCYn8vw+/qvtDZiEbpaRXNFvoB3nMEbknooQqRXvTS9qR+2ZpOz4uuGsEOviyVtTpx+lEWG9Bod0i2HBDflLetHihgJ/DdgHPHY9uNbA20rghbp5JJfsXsMYMatmiV88kr4WZVTEGOAkpfMrfMnjoRl2gxzLhsom36m0Sgdu/UpfKdc7rmLzTGSCo/qaObVUM/HGgN3FuFBHOSz+3OQtOeA4vOhTLRQmh0rmK93YR2fTEx8wyYo5WayTdGouhmrPwRA3Lnm93XpnnRJARW2Kr6EnLEqN+JXZ2Xlp jenkins master slave setup" >>/home/ec2-user/.ssh/
+            authorized_keys
+            chown -R ec2-user:ec2-user /home/ec2-user
+            su - ec2-user -c "chmod 700 /home/ec2-user/.ssh"
+            su - ec2-user -c "chmod 600 /home/ec2-user/.ssh/authorized_keys"
+
+
+     
