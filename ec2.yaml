@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A sample template
+
+Resources:
+  ec2-instance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: ami-0568773882d492fc8
+      InstanceType: "t2.micro"
+      KeyName: "akbar-pub"
+      Monitoring: true
+      SecurityGroupIds: 
+        - sg-0c194bd1f26094cf8
+      # SecurityGroups: 
+      #   - sg-0c194bd1f26094cf8
+      SubnetId: subnet-06a7cc5bdd2837b61
+      Tags: 
+        - Tag
+      # UserData: 
+      #     Fn::Base64: |
+      #       #!/bin/bash
+      #       yum update -y
