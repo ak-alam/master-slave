@@ -15,7 +15,8 @@ Resources:
       #   - sg-0c194bd1f26094cf8
       SubnetId: subnet-06a7cc5bdd2837b61
       Tags: 
-        - Tag
+        - Key: Name
+          Value: "python-server"
       # UserData: 
       #     Fn::Base64: |
       #       #!/bin/bash
