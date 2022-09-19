@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: A sample template
 
 Resources:
-  ec2-instance:
+  ec2Instance:
     Type: AWS::EC2::Instance
     Properties: 
       ImageId: ami-0568773882d492fc8
