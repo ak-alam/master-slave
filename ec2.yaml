@@ -25,7 +25,7 @@ Resources:
   ec2Instance:
     Type: AWS::EC2::Instance
     Properties: 
-      ImageId: ami-02f3416038bdb17fb
+      ImageId: ami-0568773882d492fc8
       InstanceType: "t2.micro"
       KeyName: "akbar-pub"
       Monitoring: true
