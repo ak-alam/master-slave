@@ -8,7 +8,7 @@ Resources:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: python security group
-      VpcId: vpc-08dd07fd2fed248d1
+      VpcId: vpc-0205f33279ba2c6cb
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 5000
@@ -25,14 +25,13 @@ Resources:
   ec2Instance:
     Type: AWS::EC2::Instance
     Properties: 
-      ImageId: ami-0568773882d492fc8
+      ImageId: ami-02f3416038bdb17fb
       InstanceType: "t2.micro"
       KeyName: "akbar-pub"
       Monitoring: true
       SecurityGroupIds: 
         - !Ref pySG
-      # SecurityGroups: [ "sg-0c194bd1f26094cf8" ]
-      SubnetId: subnet-0cbb726b7a57c98cd
+      SubnetId: subnet-0c6f1ee6f0668b740
       Tags: 
         - Key: Name
           Value: "python-server"
@@ -40,11 +39,23 @@ Resources:
           Fn::Base64: |
             #!/bin/bash
             yum update -y 
-            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgWaa0MY86tlPRM9qs9XoO3g8SBzyCU4JJaeCASKMgNU8X6V/LcCYn8vw+/qvtDZiEbpaRXNFvoB3nMEbknooQqRXvTS9qR+2ZpOz4uuGsEOviyVtTpx+lEWG9Bod0i2HBDflLetHihgJ/DdgHPHY9uNbA20rghbp5JJfsXsMYMatmiV88kr4WZVTEGOAkpfMrfMnjoRl2gxzLhsom36m0Sgdu/UpfKdc7rmLzTGSCo/qaObVUM/HGgN3FuFBHOSz+3OQtOeA4vOhTLRQmh0rmK93YR2fTEx8wyYo5WayTdGouhmrPwRA3Lnm93XpnnRJARW2Kr6EnLEqN+JXZ2Xlp jenkins master slave setup" >>/home/ec2-user/.ssh/
-            authorized_keys
+            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDewt93K2ZApT4kfvCVZgjQyDQZ4rDR0fZE0ZzEVhEZoQPXhLnjYApb74LcmVjD/aP9kRDz1qHxxTXcseFToKwAtjMb0fm92GTThRT3ha1jJd9ONg4T/QGH1u6lRvw9vRgsCH6tpSm5amtBa+diHJUje31Q4aLuRb5nHtvR0Wn4v/7UH2r48an5r0dH+vfQdr4fdBJP7m6/5BEjyapHk6Q3BYuxthwrSOlPVF3aSKlDCTZ6NZnYBeKx4qjuPutWFLAVytgOTDc8SEqpC2dY8HbxvD3a5JlWF8hwYyg8H6ZTiAeSiqlhLJOpf+4RFeifV/FrF/QMCtA7/KLV8dlQefDF master slave ssh keys" >>/home/ec2-user/.ssh/authorized_keys
             chown -R ec2-user:ec2-user /home/ec2-user
             su - ec2-user -c "chmod 700 /home/ec2-user/.ssh"
             su - ec2-user -c "chmod 600 /home/ec2-user/.ssh/authorized_keys"
+            yum install git -y
+            git clone https://github.com/ak-alam/flask-sample.git /home/ec2-user/app/
+            cd /home/ec2-user/app/
+            /usr/bin/python3 -m venv .env
+            source .env/bin/activate
+            /usr/bin/pip3 install -r requirements.txt
+            gunicorn -b 0.0.0.0:5000 -w=2 wsgi:app
+
+
+Outputs:
+  ec2IntanceIp:
+    Description: Instance IP output
+    Value: !GetAtt ec2Instance.PublicIp
 
 
      
