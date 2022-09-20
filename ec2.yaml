@@ -51,11 +51,7 @@ Resources:
             /usr/bin/pip3 install -r requirements.txt
             gunicorn -b 0.0.0.0:5000 -w=2 wsgi:app
 
-
 Outputs:
   ec2IntanceIp:
     Description: Instance IP output
     Value: !GetAtt ec2Instance.PublicIp
-
-
-     
