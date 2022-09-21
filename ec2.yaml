@@ -39,7 +39,7 @@ Resources:
           Fn::Base64: |
             #!/bin/bash
             yum update -y 
-            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDewt93K2ZApT4kfvCVZgjQyDQZ4rDR0fZE0ZzEVhEZoQPXhLnjYApb74LcmVjD/aP9kRDz1qHxxTXcseFToKwAtjMb0fm92GTThRT3ha1jJd9ONg4T/QGH1u6lRvw9vRgsCH6tpSm5amtBa+diHJUje31Q4aLuRb5nHtvR0Wn4v/7UH2r48an5r0dH+vfQdr4fdBJP7m6/5BEjyapHk6Q3BYuxthwrSOlPVF3aSKlDCTZ6NZnYBeKx4qjuPutWFLAVytgOTDc8SEqpC2dY8HbxvD3a5JlWF8hwYyg8H6ZTiAeSiqlhLJOpf+4RFeifV/FrF/QMCtA7/KLV8dlQefDF master slave ssh keys" >>/home/ec2-user/.ssh/authorized_keys
+            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxRG0ra6jWD28Dr9c+kUHkinYWxkbHqyorIpI/JhFf5dXiYFIUlksItYagf0BUMMDrwdRHx88UQW3AFbPK/97XWd1PQOzjAqM+xMUF1sqZcmOHBAspFQFSReYDmjMrBLAuC0JBQ9q5F6D5u0LuWrBRALwGSOuPiWGnOU7Q2uvmyoFRgnRtv2iEg2UlDG4nImHoLDD7gcNbd/3lQGz8bviKG4DfBz195G9cLGZRtlBY7YyETfFHY3q46GJkfVAS5I6wBG2fXacs0rtbQd6hWQirxHeDNApsDnmNUTrYNYURS/weTOEELjHgyaLR285hAwRea1+5r6/osHCr6AqyjWQ/ slave node" >>/home/ec2-user/.ssh/authorized_keys
             chown -R ec2-user:ec2-user /home/ec2-user
             su - ec2-user -c "chmod 700 /home/ec2-user/.ssh"
             su - ec2-user -c "chmod 600 /home/ec2-user/.ssh/authorized_keys"
