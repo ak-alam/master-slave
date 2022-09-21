@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
-    return "Hello Webhook.."
+    return "Hello Update.."
 
 
 if __name__ == "__main__":
