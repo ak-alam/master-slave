@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
-    return "change"
+    return "Hello Flask Server"
 
 
 if __name__ == "__main__":
