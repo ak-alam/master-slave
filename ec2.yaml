@@ -43,13 +43,13 @@ Resources:
             chown -R ec2-user:ec2-user /home/ec2-user
             su - ec2-user -c "chmod 700 /home/ec2-user/.ssh"
             su - ec2-user -c "chmod 600 /home/ec2-user/.ssh/authorized_keys"
-            yum install git -y
-            git clone https://github.com/ak-alam/flask-sample.git /home/ec2-user/app/
-            cd /home/ec2-user/app/
-            /usr/bin/python3 -m venv .env
-            source .env/bin/activate
-            /usr/bin/pip3 install -r requirements.txt
-            gunicorn -b 0.0.0.0:5000 -w=2 wsgi:app
+            # yum install git -y
+            # git clone https://github.com/ak-alam/flask-sample.git /home/ec2-user/app/
+            # cd /home/ec2-user/app/
+            # /usr/bin/python3 -m venv .env
+            # source .env/bin/activate
+            # /usr/bin/pip3 install -r requirements.txt
+            # gunicorn -b 0.0.0.0:5000 -w=2 wsgi:app
 
 Outputs:
   ec2IntanceIp:
