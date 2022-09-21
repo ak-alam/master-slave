@@ -1,3 +1,4 @@
+chmod +x run.sh
 cd app
 source .env/bin/activate
 pip3 install -r requirements.txt
