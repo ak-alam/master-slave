@@ -3,4 +3,4 @@
 # git pull origin main
 # pip3 install -r requirements.txt
 # pkill -P1 gunicorn
-ps aux | grep gunicorn | grep ec2-user | awk '{ print $2 }' | xargs kill -HUP
+ps aux | grep gunicorn | grep "/usr/bin/python3" | awk '{ print $2 }' | xargs kill -HUP
