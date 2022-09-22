@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
-    return "Flask Server Running WebHook New Change"
+    return "Flask Server Running JNLP Test"
 
 
 if __name__ == "__main__":
