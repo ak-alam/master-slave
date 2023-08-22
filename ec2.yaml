@@ -34,22 +34,15 @@ Resources:
       SubnetId: subnet-0c6f1ee6f0668b740
       Tags: 
         - Key: Name
-          Value: "python-server"
+          Value: "flask-server"
       UserData: 
           Fn::Base64: |
             #!/bin/bash
             yum update -y 
-            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxRG0ra6jWD28Dr9c+kUHkinYWxkbHqyorIpI/JhFf5dXiYFIUlksItYagf0BUMMDrwdRHx88UQW3AFbPK/97XWd1PQOzjAqM+xMUF1sqZcmOHBAspFQFSReYDmjMrBLAuC0JBQ9q5F6D5u0LuWrBRALwGSOuPiWGnOU7Q2uvmyoFRgnRtv2iEg2UlDG4nImHoLDD7gcNbd/3lQGz8bviKG4DfBz195G9cLGZRtlBY7YyETfFHY3q46GJkfVAS5I6wBG2fXacs0rtbQd6hWQirxHeDNApsDnmNUTrYNYURS/weTOEELjHgyaLR285hAwRea1+5r6/osHCr6AqyjWQ/ slave node" >>/home/ec2-user/.ssh/authorized_keys
+            echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgO9XPW9zBzzVlcY534pY6cZksLqajL5NNJGKiGuRrIsMuDXYpbJ/nA4s4SOWOmbsCH7jwEim0HLeVN6noPg/2u78DNHUu4PuA1w6JXwp6q5gUxilwLEoTOMCD9+xOPcdDs7B8bZhBrqc5tFhRLoQbAsUdHGV+FCI6dY6Jlhi/73m2/yqdSOdct2xsGkQT8RnxvTjbU9GuoEQEV6QCUQHZcByWViU+0wMVHx+XVr/rowuL0aq8hB8jHvcdfc+pDu3Yo0Bfg6ohGUyuJzFtxKL++on8uLwLBVyHjQTUPFaSeEAYlxRhMpdptJOD0NZSiI1SjPuMQGpFF2KyX7RbfG69 jnlp-agent" >>/home/ec2-user/.ssh/authorized_keys
             chown -R ec2-user:ec2-user /home/ec2-user
             su - ec2-user -c "chmod 700 /home/ec2-user/.ssh"
             su - ec2-user -c "chmod 600 /home/ec2-user/.ssh/authorized_keys"
-            # yum install git -y
-            # git clone https://github.com/ak-alam/flask-sample.git /home/ec2-user/app/
-            # cd /home/ec2-user/app/
-            # /usr/bin/python3 -m venv .env
-            # source .env/bin/activate
-            # /usr/bin/pip3 install -r requirements.txt
-            # gunicorn -b 0.0.0.0:5000 -w=2 wsgi:app
 
 Outputs:
   ec2IntanceIp:
